@@ -1,0 +1,47 @@
+<br>
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Settings <button routerLink="/" class="btn btn-link"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> Back</button>
+  </div>
+  <div class="card-block">
+
+    <form (submit)="onSubmit()">
+
+      <div class="form-group">
+        <label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0">
+          <input [checked]="rules.allowRegistration"
+                 (change)="rules.allowRegistration = !rules.allowRegistration"
+                 name="allowRegistration"
+                 type="checkbox" class="custom-control-input">
+          <span class="custom-control-indicator"></span>
+          <span class="custom-control-description">Allow Registration</span>
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0">
+          <input [checked]="rules.disableBalanceOnAdd"
+                 (change)="rules.disableBalanceOnAdd = !rules.disableBalanceOnAdd"
+                 name="disableBalanceOnAdd"
+                 type="checkbox" class="custom-control-input">
+          <span class="custom-control-indicator"></span>
+          <span class="custom-control-description">Disable balance change when Adding new user</span>
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0">
+          <input [checked]="rules.disableBalanceOnEdit"
+                 (change)="rules.disableBalanceOnEdit = !rules.disableBalanceOnEdit"
+                 name="disableBalanceOnEdit"
+                 type="checkbox" class="custom-control-input">
+          <span class="custom-control-indicator"></span>
+          <span class="custom-control-description">Disable balance change when editing a User</span>
+        </label>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+  </div>
+</div>

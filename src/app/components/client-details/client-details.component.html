@@ -1,0 +1,59 @@
+<div class="row">
+  
+  <div class="col-md-12">
+    
+    <div class="card">
+      <div class="card-header d-flex align-items-center justify-content-between">
+        Client Details <button routerLink="/" class="btn btn-link"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> Back</button>
+      </div>
+      <div class="card-block d-flex">
+        
+        <div class="col-md-12" *ngIf="client">
+          
+          <div class="row">
+            <div class="col-md-8">
+              <h3>{{ client.firstName }} {{ client.lastName }}</h3>
+            </div>
+            <div class="col-md-4 d-flex">
+              <h4 class="ml-auto align-self-start">Balance: 
+                <span class="badge"  
+                      [class.badge-warning]="hasBalance"
+                      [class.badge-success]="!hasBalance">{{ client.balance | currency:"USD":true }}</span>
+              </h4>
+              <a class="ml-1" (click)="showBalanceUpdateInput = !showBalanceUpdateInput"><i class="fa fa-pencil-square" aria-hidden="true"></i>Edit</a>
+            </div>
+
+            <div class="col-md-12 d-flex justify-content-end align-items-center mb-2">
+              <form *ngIf="showBalanceUpdateInput" (submit)="updatedBalance(id)" class="form-inline">
+                <div class="form-group">
+                  <input class="form-control" type="number" placeholder="Readonly input here…"
+                         [(ngModel)]="client.balance" name="balance">
+                </div>
+                <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+              </form>
+            </div>
+            
+            <div class="col-md-12">
+              <ul class="list-group">
+                <li class="list-group-item active">Client ID <span class="text-info"> {{ id }}</span></li>
+                <li class="list-group-item">Contact Email: {{ client.email }}</li>
+                <li class="list-group-item">Phone Number: {{ client.phone }}</li>
+              </ul>
+            </div>
+          </div>
+          
+          
+          <div class="row">
+            <div class="ml-auto mr-3 mt-3">
+              <button [routerLink]="['/edit-client/' +id]" type="button" class="btn btn-primary">Edit</button>
+              <button (click)="onDeleteClick()" type="button" class="btn btn-danger">Delete</button>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+  </div>
+  
+</div>

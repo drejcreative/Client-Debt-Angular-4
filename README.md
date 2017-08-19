@@ -7,6 +7,7 @@ Client Panel Is Angular 4 App for tracking down a Client debt. Firebase is used 
 
 ##Instructions
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.5 so make sure to have it globally installed.
+Also you need to add your own Firebase Config in order to app work on your local setup.
 
 Make sure you have these installed
 1. [Node.js](www.nodejs.org).

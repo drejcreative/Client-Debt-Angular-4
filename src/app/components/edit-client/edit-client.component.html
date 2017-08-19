@@ -1,0 +1,98 @@
+<div class="row">
+  <div class="col-md-12">
+
+    <div class="card-header d-flex align-items-center justify-content-between">
+      Edit Client Details <button [routerLink]="['/client/' + id]" class="btn btn-link"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> Back</button>
+    </div>
+    <div class="card-block">
+
+      <form novalidate #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <div class="form-group" [ngClass]="{
+                                             'has-warning': !clientFirstName.valid && clientFirstName.touched,
+                                             'has-success': clientFirstName.valid && clientFirstName.touched
+                                           }">
+          <label for="name">First Name</label>
+          <input [(ngModel)]="client.firstName"
+                 name="firstName"
+                 #clientFirstName="ngModel"
+                 minlength="3"
+                 required
+                 type="text" class="form-control" id="name" placeholder="Enter your Name">
+          <div *ngIf="clientFirstName.errors?.required && clientFirstName.touched" class="form-control-feedback">
+             First Name Required!
+          </div>
+          <div *ngIf="clientFirstName.errors?.minlength && clientFirstName.touched" class="form-control-feedback">
+             Must be at least 3 characters!
+          </div>
+        </div>
+
+        <div class="form-group" [ngClass]="{
+                                             'has-warning': !clientLastName.valid && clientLastName.touched,
+                                             'has-success': clientLastName.valid && clientLastName.touched
+                                           }">
+          <label for="name">Last Name</label>
+          <input [(ngModel)]="client.lastName"
+                 name="lastName"
+                 #clientLastName="ngModel"
+                 minlength="3"
+                 required
+                 type="text" class="form-control" id="lastname" placeholder="Enter your Last Name">
+          <div *ngIf="clientLastName.errors?.required && clientLastName.touched" class="form-control-feedback">
+             Last Name Required!
+          </div>
+          <div *ngIf="clientLastName.errors?.minlength && clientLastName.touched" class="form-control-feedback">
+             Must be at least 3 characters!
+          </div>
+        </div>
+
+        <div class="form-group" [ngClass]="{
+                                             'has-warning': !clientEmail.valid && clientEmail.touched,
+                                             'has-success': clientEmail.valid && clientEmail.touched
+                                           }">
+          <label for="name">Email</label>
+          <input [(ngModel)]="client.email"
+                 name="email"
+                 #clientEmail="ngModel"
+                 required
+                 email
+                 type="email" class="form-control" id="email" placeholder="Enter your Email">
+          <div *ngIf="!clientEmail.valid && clientEmail.touched" class="form-control-feedback">
+             Email need to be valid!
+          </div>
+        </div>
+
+        <div class="form-group" [ngClass]="{
+                                             'has-warning': !clientPhone.valid && clientPhone.touched,
+                                             'has-success': clientPhone.valid && clientPhone.touched
+                                           }">
+          <label for="phone">Phone</label>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="client.phone"
+            name="phone"
+            #clientPhone="ngModel"
+            minlength="10"
+            required
+          >
+          <div *ngIf="clientPhone.errors?.minlength && clientPhone.touched" class="form-control-feedback">
+             Add a valid Phone number!
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="balance">Balance</label>
+          <input [(ngModel)]="client.balance"
+                 name="balance"
+                 #clientBalance="ngModel"
+                 type="number" class="form-control" id="balance" placeholder="Balance"
+                 [disabled]="disabledBalanceOnEdit">
+        </div>
+
+        <input [disabled]="!f.valid" type="submit" class="btn btn-primary" value="Submit" >
+      </form>
+
+    </div>
+
+  </div>
+</div>

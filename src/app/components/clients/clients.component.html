@@ -1,0 +1,51 @@
+<br>
+
+<div class="row">
+  <div class="col-md-6">
+    <h2><i class="fa fa-user-circle" aria-hidden="true"></i> Clients</h2>
+  </div>
+  <div class="col-md-6">
+    <h4 class="float-md-right">Total balance <span class="badge badge-secondary">{{ totalOwed | currency:"USD":true }}</span></h4>
+  </div>
+</div>
+
+<br>
+
+<div class="row">
+  <div id="tbl" class="col-md-12">
+    <table class="table table-striped table-hover"
+           *ngIf="clients?.length>0; else noClients" >
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Balance</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody >
+        <tr  *ngFor="let c of clients">
+          <td data-title="ID">{{ c.$key }}</td>
+          <td data-title="Name">{{ c.firstName }} {{ c.lastName }}</td>
+          <td data-title="Email">{{ c.email }}</td>
+          <td data-title="Balance"><span class="badge"  
+                [ngClass]="[c.balance > 0 ? 'badge-warning' : 'badge-success']">{{ c.balance | currency:"USD":true }}</span>
+          </td>
+          <td><button [routerLink]="['/client/' + c.$key]" class="btn btn-secoundary btn-block"><i class="fa fa-arrow-circle-o-right"></i> Details</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col-md-12">
+    <ng-template #noClients>
+      <div class="alert alert-info" role="alert">
+        There is not clients in system
+      </div>
+    </ng-template>
+  </div>
+  
+</div>
+
+
