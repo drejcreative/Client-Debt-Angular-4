@@ -3,7 +3,7 @@
 ![Project Dashboard](2.png)
 ![Adding new Client](3.png)
 
-Client Panel Is Angular 4 App for tracking down a Client debt. Firebase is used as backend service. App cover all CRUD operations, User Authentification, route protection and custom app settings. You can disable registration, disable balance edit on multiple places, all in setting page.
+Client Panel Is Angular 4 App for tracking down a Client debt. Firebase is used as backend service. App cover all CRUD operations, User Authentification, route protection and custom app settings. You can disable registration, disable balance edit on multiple places, all in setting page. Bootstrap 4 is used for UI with custom theme from https://bootswatch.com.
 
 ##Instructions
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.5 so make sure to have it globally installed.
