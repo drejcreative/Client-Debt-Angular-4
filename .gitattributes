@@ -1,0 +1,2 @@
+*.css linguist-language=Typescript
+*.scss linguist-language=Typescript
